@@ -32,4 +32,4 @@ jobs:
           git push --delete origin test-release
 
       - name: Create release
-              run: gh release create test-release test.txt --prerelease --title 'Test release'
+        run: gh release create test-release test.txt --prerelease --title 'Test release'
