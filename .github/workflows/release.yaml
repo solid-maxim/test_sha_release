@@ -26,5 +26,12 @@ jobs:
       - name: Configure GitHub CLI
         run: gh auth login --with-token <<< ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: MCJack123/ghaction-generate-release-hashes@v1
+        with:
+          file-name: hash.sha256.txt
+
+      - name: Archive release hash
+        run: tar -czvf hash.sha256.tar.gz hash.sha256.txt
+
       - name: Create release
-        run: gh release create test-release test.txt.zip --prerelease --title 'Test release'
+        run: gh release create test-release test.txt.zip hash.sha256.tar.gz --prerelease --title 'Test release'
