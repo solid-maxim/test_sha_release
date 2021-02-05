@@ -31,5 +31,5 @@ jobs:
           gh release delete test-release -y
           git push --delete origin test-release
 
- - name: Create release
-        run: gh release create test-release test.txt --prerelease --title 'Test release'
+      - name: Create release
+              run: gh release create test-release test.txt --prerelease --title 'Test release'
