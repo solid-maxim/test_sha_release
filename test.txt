@@ -1,4 +1,1 @@
-      - name: Delete release
-        run: |
-          gh release delete test-release -y
-          git push --delete origin test-release
+Hello World
