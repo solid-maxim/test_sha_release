@@ -31,12 +31,11 @@ jobs:
           gh release delete test-release -y
           git push --delete origin test-release
 
+      - name: Create sha-256
+        run: sha256sum test.txt.zip > hash.sha256.txt
+
+      - name: Create archive
+        run: tar -czvf hash.sha256.tar.gz hash.sha256.txt
+
       - name: Create release
         run: gh release create test-release test.txt.zip hash.sha256.tar.gz --prerelease --title 'Test release'
-
-      - uses: MCJack123/ghaction-generate-release-hashes@v1
-        with:
-          file-name: hash.sha256.txt
-
-      - name: Archive release hash
-        run: tar -czvf hash.sha256.tar.gz hash.sha256.txt
