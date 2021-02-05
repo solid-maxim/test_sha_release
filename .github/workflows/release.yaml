@@ -33,5 +33,10 @@ jobs:
       - name: Archive release hash
         run: tar -czvf hash.sha256.tar.gz hash.sha256.txt
 
+      - name: Delete release
+        run: |
+          gh release delete test-release -y
+          git push --delete origin test-release
+
       - name: Create release
         run: gh release create test-release test.txt.zip hash.sha256.tar.gz --prerelease --title 'Test release'
