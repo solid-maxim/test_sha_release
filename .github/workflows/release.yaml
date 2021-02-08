@@ -16,10 +16,10 @@ jobs:
           fetch-depth: 1
           ref: ${{ github.ref }}
       - name: Create archive
-        run: tar -czvf ci_integrations_linux.tgz ci_integrations_linux
+        run: tar -czvf /my/ci_integrations_linux.tgz /my/ci_integrations_linux
       
       - name: Generate SHA-256 Hash
-        run: shasum -a 256 ci_integrations_linux.tgz > ci_integrations_linux.tgz.sha256
+        run: shasum -a 256 /my/ci_integrations_linux.tgz > /my/ci_integrations_linux.tgz.sha256
 
       - name: Upload SHA-256 Hash Artifact
         uses: actions/upload-artifact@v2
