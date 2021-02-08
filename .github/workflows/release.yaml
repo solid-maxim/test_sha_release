@@ -25,6 +25,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ci_integrations_linux.tgz.sha256
+          path: ci_integrations_linux.tgz.sha256
           if-no-files-found: error
 
   release_actions:
@@ -51,6 +52,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: ci_integrations_linux.tgz.sha256
+          path: ci_integrations_linux.tgz.sha256
 
       - name: Create release
         run: gh release create test-release ci_integrations_linux ci_integrations_linux.tgz.sha256 --prerelease --title 'Test release'
