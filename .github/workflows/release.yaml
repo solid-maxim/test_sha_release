@@ -55,5 +55,10 @@ jobs:
           name: ci_integrations_linux.tgz.sha256
           path: my/
 
+      - name: Delete release
+        run: |
+          gh release delete test-release -y
+          git push --delete origin test-release
+
       - name: Create release
         run: gh release create test-release my/ci_integrations_linux my/ci_integrations_linux.tgz.sha256 --prerelease --title 'Test release'
