@@ -56,4 +56,4 @@ jobs:
           path: my/ci_integrations_linux.tgz.sha256
 
       - name: Create release
-        run: gh release create test-release ci_integrations_linux my/ci_integrations_linux.tgz.sha256 --prerelease --title 'Test release'
+        run: gh release create test-release my/ci_integrations_linux my/ci_integrations_linux.tgz.sha256 --prerelease --title 'Test release'
